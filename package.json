@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve"
+    "dev": "webpack serve --mode development"
   },
   "author": "Max Ermilov",
   "license": "ISC",
@@ -25,8 +25,10 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.18.6",
     "core-js": "^3.29.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   }
 }

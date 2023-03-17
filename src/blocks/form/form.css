@@ -17,6 +17,9 @@
 
   background: #FFFFFF;
   flex-wrap: nowrap;
+}
+
+.form__input-wrapper_error {
   border: 0.5px solid #C6A827;
 }
 
