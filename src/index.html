@@ -19,28 +19,29 @@
   </div>
   <div class="media" id="app">
     <!--    PLACE FOR REACT COMPONENT -->
-<!--    <noscript>-->
-      <h2 class="media__label">Insert the link</h2>
-      <form class="form">
-        <div class="form__input-wrapper">
-          <input
-            class="form__input"
-            type="url"
-            placeholder="https://"
-            aria-label="Insert the link"
-            required
-          />
-          <div class="form__warning-icon active"></div>
-          <button
-            class="button form__submit-button"
-            type="submit"
-            name="submit"
-          >Submit
-          </button>
-        </div>
-        <span class="form__error active">Please enable JavaScript!</span>
-      </form>
-<!--    </noscript>-->
+    <noscript class="media__wrapper">
+        <h2 class="media__label">Insert the link</h2>
+        <form class="form">
+          <div class="form__input-wrapper">
+            <input
+              class="form__input"
+              type="url"
+              placeholder="https://"
+              aria-label="Insert the link"
+              required
+            />
+            <div class="form__warning-icon active"></div>
+            <button
+              class="button form__submit-button"
+              type="submit"
+              name="submit"
+              disabled
+            >Submit
+            </button>
+          </div>
+          <span class="form__error active">Please enable JavaScript!</span>
+        </form>
+    </noscript>
   </div>
 </header>
 <main class="pricing page__pricing">
@@ -72,7 +73,7 @@
   <section class="tec-requirements">
     <h2 class="tec-requirements__title">Technical requirements</h2>
     <div class="tec-requirements__cover">
-      <input class="tec-requirements__tab" type="radio" name="tab" id="tab1" checked />
+      <input class="tec-requirements__tab" type="radio" name="tab" id="tab1" checked/>
       <label class="tec-requirements__tab-label" for="tab1" tabindex="0">Own server</label>
       <ul class="tec-requirements__list">
         <li class="tec-requirements__list-item">

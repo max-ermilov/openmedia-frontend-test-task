@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 
-export default function Input({link}) {
+export default function Form({link}) {
   const [isError, setIsError] = useState(false);
   const [inputError, setInputError] = useState('')
   const input = useRef();
@@ -19,12 +19,13 @@ export default function Input({link}) {
   }
 
   return (
-    <>
+    <div className="media__wrapper">
       <h2 className="media__label">Insert the link</h2>
       <form
         className="form"
         onSubmit={onSubmitHandler}
         noValidate
+        onClick={() => {input.current.focus()}}
       >
         <div className={`form__input-wrapper ${isError ? "form__input-wrapper_error" : ""}`}>
           <input
@@ -48,6 +49,6 @@ export default function Input({link}) {
         </div>
         <span className={`form__error ${isError ? "active" : ""}`}>{inputError}</span>
       </form>
-    </>
+    </div>
   )
 }

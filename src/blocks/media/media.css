@@ -8,11 +8,29 @@
   align-items: center;
 }
 
+.media__wrapper {
+  display: flex;
+  flex-direction: column;
+  /*align-content: center;*/
+  align-items: center;
+  width: 80%;
+  max-width: 620px;
+  /*margin: 0 auto;*/
+}
+
+@media (max-width: 768px) {
+  .media__wrapper {
+    min-width: 100%;
+  }
+}
+
 .media__label {
+  display: flex;
   margin: 0 0 20px 0;
   padding: 0;
-  width: 80%;
-  align-self: center;
+  width: 100%;
+  /*max-width: 620px;*/
+  /*align-self: center;*/
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
