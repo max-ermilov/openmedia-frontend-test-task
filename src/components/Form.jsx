@@ -40,15 +40,15 @@ export default function Form({link}) {
             }}
           />
           <div className={`form__warning-icon ${isError ? "active" : ""}`}></div>
-          <button
-            className="button form__submit-button"
-            type="submit"
-            name="submit"
-          >Submit
-          </button>
         </div>
-        <span className={`form__error ${isError ? "active" : ""}`}>{inputError}</span>
+        <button
+          className="button form__submit-button"
+          type="submit"
+          name="submit"
+        >Submit
+        </button>
       </form>
+      <span className={`form__error ${isError ? "active" : ""}`}>{inputError}</span>
     </div>
   )
 }

@@ -8,21 +8,15 @@
 </head>
 <body class="page">
 <header class="promo page__promo">
-  <div class="promo__text-wrapper">
+  <div class="promo__wrapper">
     <div class="promo__title-wrapper">
       <h1 class="promo__title">Play any audio sources directly in the browser!</h1>
-      <h2 class="promo__subtitle">Without any restrictions for free</h2>
     </div>
-    <p class="promo__terms-text">By uploading the audio file, you agree to our
-      <a class="promo__terms-link" href="javascript:">Terms of Service</a>.
-    </p>
-  </div>
-  <div class="media" id="app">
-    <!--    PLACE FOR REACT COMPONENT -->
-    <noscript class="media__wrapper">
+    <div class="media" id="app">
+      <noscript class="media__wrapper">
         <h2 class="media__label">Insert the link</h2>
         <form class="form">
-          <div class="form__input-wrapper">
+          <div class="form__input-wrapper form__input-wrapper_error">
             <input
               class="form__input"
               type="url"
@@ -31,17 +25,26 @@
               required
             />
             <div class="form__warning-icon active"></div>
-            <button
-              class="button form__submit-button"
-              type="submit"
-              name="submit"
-              disabled
-            >Submit
-            </button>
           </div>
-          <span class="form__error active">Please enable JavaScript!</span>
+          <button
+            class="button form__submit-button"
+            type="submit"
+            name="submit"
+            disabled
+          >Submit
+          </button>
         </form>
-    </noscript>
+        <span class="form__error active">Please enable JavaScript!</span>
+      </noscript>
+    </div>
+      <div class="promo__subtitle-wrapper">
+        <h2 class="promo__subtitle">Without any restrictions for free</h2>
+        <div class="promo__terms-text-wrapper">
+          <p class="promo__terms-text">By uploading the audio file, you agree to our
+            <a class="promo__terms-link" href="javascript:">Terms of Service</a>.
+          </p>
+        </div>
+      </div>
   </div>
 </header>
 <main class="pricing page__pricing">

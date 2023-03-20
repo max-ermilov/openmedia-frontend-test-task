@@ -4,7 +4,7 @@ import "./Player.css";
 export default function Player({link, goBack}) {
   const [isPlay, setIsPlay] = useState(false);
   const [audioDuration, setAudioDuration] = useState(null);
-  const [audioTime, setAudiotime] = useState(0);
+  const [audioTime, setAudioTime] = useState(0);
   const [audioVolume, setAudioVolume] = useState(1);
   const [minute, setMinute] = useState();
   const [second, setSecond] = useState();
@@ -45,7 +45,7 @@ export default function Player({link, goBack}) {
   };
 
   const timeHandler = (e) => {
-    setAudiotime(e.target.value);
+    setAudioTime(e.target.value);
     player.currentTime = e.target.value;
   };
 
@@ -79,7 +79,7 @@ export default function Player({link, goBack}) {
   useEffect(() => {
     if (isPlay) {
       timeInterval = setInterval(() => {
-        setAudiotime(player.currentTime);
+        setAudioTime(player.currentTime);
         setMinute(
           Math.trunc(player.currentTime / 60)
             .toString()
@@ -132,7 +132,7 @@ export default function Player({link, goBack}) {
           />
         </label>
         <div className="player__volume-row">
-          <div className="player__taimer">
+          <div className="player__timer">
 						<span>
 							{minute || "00"}:{second || "00"}
 						</span>

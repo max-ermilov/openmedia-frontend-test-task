@@ -4,15 +4,12 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.4px;
 }
 
 .tec-requirements__cover {
   width: 100%;
   margin-top: 40px;
-  /*overflow-x: scroll;*/
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -22,21 +19,18 @@
 }
 
 .tec-requirements__tab-label {
-  display: flex;
+  display: block;
   height: 35px;
-  /*line-height: 35px;*/
   min-width: 50px;
   max-width: max-content;
   padding-bottom: 3px;
   text-align: center;
-  /*color: #fff;*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  /*column-gap: 16px;*/
   border-bottom: 3px solid transparent;
   cursor: pointer;
   -webkit-user-select: none;
@@ -45,14 +39,8 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.4px;
-
-  /* Old/S — Light */
-
   color: #CFD3D6;
-
   opacity: 0.4;
 }
 
@@ -76,7 +64,6 @@
 .tec-requirements__list-item {
   display: flex;
   width: 100%;
-  /*column-gap: 40px;*/
   border-bottom: 1px solid rgba(207, 211, 214, 0.1);
 
 }
@@ -84,28 +71,18 @@
 .tec-requirements__list-item > * {
   margin: 0;
   display: flex;
-  /*padding: 0;*/
   padding: 12px 6px 12px 0;
   font-weight: 300;
   font-size: 24px;
   line-height: 32px;
-  /* identical to box height, or 133% */
-
   letter-spacing: -0.4px;
   width: 100%;
-
-  /* Old/Surface */
-
   color: #EEEEEE;
-  /*border-bottom: 1px solid rgba(207, 211, 214, 0.1);*/
 }
 
 .tec-requirements__list-item > *:first-child {
   flex: 1 0 250px;
   padding: 12px 0;
-  /*flex-basis: 250px;*/
-  /*flex-basis: 50%;*/
-  /*padding-right: 20px;*/
 }
 
 .tec-requirements__tab:checked + .tec-requirements__tab-label {
@@ -116,4 +93,21 @@
 
 .tec-requirements__tab:checked + .tec-requirements__tab-label + .tec-requirements__list {
   display: block;
+}
+
+@media (max-width: 1024px) {
+  .tec-requirements__list {
+    columns: 1;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .tec-requirements__list-item {
+    flex-direction: column;
+  }
+  .tec-requirements__list-item > *:first-child {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+  }
 }
