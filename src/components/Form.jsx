@@ -6,7 +6,7 @@ export default function Form({link}) {
   const input = useRef();
 
   function isValidAudioUrl(urlToCheck) {
-    return fetch(urlToCheck, {method: 'HEAD', mode: 'cors'})
+    return fetch(urlToCheck, {method: 'HEAD', mode: 'no-cors'})
       .then(res => {
         if (!res.ok) {
           throw new Error(`Unable to play ${res.statusText || 'wrong input'}`);
