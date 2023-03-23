@@ -1,22 +1,50 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 
 export default function Form({link}) {
   const [isError, setIsError] = useState(false);
   const [inputError, setInputError] = useState('')
   const input = useRef();
 
-  function onSubmitHandler(e) {
+  function isValidAudioUrl(urlToCheck) {
+    return fetch(urlToCheck, {method: 'HEAD', mode: 'cors'})
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Unable to play ${res.statusText || 'wrong input'}`);
+        }
+        if (!res.headers.get('content-type').startsWith('audio')) {
+          throw new Error(
+            `Unable to play ${res?.headers?.get('content-type')?.split(';')[0] || 'non-audio'} link`
+          );
+        }
+        if (res.ok && res.headers.get('content-type').startsWith('audio')) {
+          return urlToCheck;
+        }
+      });
+  }
+
+  const onSubmitHandler = e => {
     e.preventDefault();
     const linkValue = input.current.value.trim().toLowerCase();
     if (e.target.closest("form").checkValidity()) {
-      link(linkValue);
-      setIsError(false);
-      setInputError('');
+      isValidAudioUrl(linkValue)
+        .then((res) => {
+          link(res);
+          setIsError(false);
+          setInputError('');
+        })
+        .catch(err => {
+          setTimeout(() => {
+            setIsError(false);
+            setInputError('');
+          }, 4000);
+          setIsError(true);
+          setInputError(err.message)
+        });
     } else {
       setIsError(true);
       setInputError(input.current.validationMessage);
     }
-  }
+  };
 
   return (
     <div className="media__wrapper">
@@ -25,7 +53,9 @@ export default function Form({link}) {
         className="form"
         onSubmit={onSubmitHandler}
         noValidate
-        onClick={() => {input.current.focus()}}
+        onClick={() => {
+          input.current.focus()
+        }}
       >
         <div className={`form__input-wrapper ${isError ? "form__input-wrapper_error" : ""}`}>
           <input

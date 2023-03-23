@@ -27,6 +27,7 @@ export default function Player({link, goBack}) {
     if (player.readyState > 1) {
       setAudioDuration(player.duration);
       setAudioVolume(player.volume);
+      playHandler();
     }
   }
 
