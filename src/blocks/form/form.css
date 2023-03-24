@@ -36,6 +36,10 @@
   color: #1B191C;
 }
 
+.form__input:disabled {
+  filter: saturate(.3);
+}
+
 .form__input::placeholder {
   color: #A4A3A4;
 }
@@ -59,6 +63,16 @@
   right: 0;
   top: 0;
   min-width: 96px;
+
+}
+
+.form__submit-button:disabled:hover {
+  cursor: wait;
+  filter: saturate(.3);
+}
+
+.form__submit-button:disabled {
+  filter: saturate(.3);
 }
 
 .form__error {
