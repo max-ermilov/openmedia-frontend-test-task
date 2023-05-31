@@ -6,7 +6,8 @@ export default function Form({link}) {
   const [urlToCheck, setUrlToCheck] = useState('')
   const [isPending, setIsPending] = useState(false)
   const input = useRef();
-  const testAudio = React.createRef();
+  // const testAudio = React.createRef();
+  const testAudio = useRef(null);
 
   const errorsList = [
     'Unknown error',
@@ -82,6 +83,7 @@ export default function Form({link}) {
           name="submit"
         >Submit
         </button>
+        {/*now check if link provides an audio content*/}
         {(urlToCheck !== '') && <audio
           ref={testAudio.current}
           src={urlToCheck}

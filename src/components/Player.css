@@ -42,6 +42,7 @@
   width: 100%;
   position: relative;
   height: 10px;
+  transition: all 1s;
 }
 
 .player__progress-bar:hover input::-webkit-slider-runnable-track {
@@ -63,7 +64,7 @@
   position: absolute;
   -webkit-appearance: none;
   background-size: 0 100%;
-  transition: all 0s;
+  transition: all 1s;
   background: transparent linear-gradient(90deg, #FFFFFF, #FFFFFF) no-repeat;
 }
 
@@ -82,6 +83,8 @@
   background: #FFFFFF;
   cursor: pointer;
   margin-top: -5px;
+  transition: all 1s;
+
 }
 
 .player__progress-bar input::-webkit-slider-thumb:hover {
@@ -97,7 +100,7 @@
   position: absolute;
   background: #ADACAD linear-gradient(90deg, #878787, #878787) no-repeat;
   background-size: 0 100%;
-  transition: all 0s;
+  transition: all 1s;
 }
 
 .player__title {

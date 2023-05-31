@@ -3,11 +3,11 @@ import "./Player.css";
 
 export default function Player({link, goBack}) {
   const [isPlay, setIsPlay] = useState(false);
-  const [audioDuration, setAudioDuration] = useState(null);
+  const [audioDuration, setAudioDuration] = useState(0);
   const [audioTime, setAudioTime] = useState(0);
   const [audioVolume, setAudioVolume] = useState(1);
-  const [minute, setMinute] = useState();
-  const [second, setSecond] = useState();
+  const [minutes, setMinutes] = useState('');
+  const [seconds, setSeconds] = useState('');
   const [timer, setTimer] = useState(null);
   const [timeValue, setTimeValue] = useState(0);
   const [player, setPlayer] = useState();
@@ -17,8 +17,8 @@ export default function Player({link, goBack}) {
   let timeInterval;
 
   const handleProgress = () => {
-    const loaded = player.buffered.end(0);
-    const total = player.duration || player.buffered.end(0);
+    const loaded = player?.buffered.end(0);
+    const total = player?.duration || player?.buffered.end(0);
     const progress = (loaded / total) * 100;
     setTimeValue(progress);
   };
@@ -81,12 +81,12 @@ export default function Player({link, goBack}) {
     if (isPlay) {
       timeInterval = setInterval(() => {
         setAudioTime(player.currentTime);
-        setMinute(
+        setMinutes(
           Math.trunc(player.currentTime / 60)
             .toString()
             .padStart(2, "0")
         );
-        setSecond(
+        setSeconds(
           Math.round(player.currentTime % 60)
             .toString()
             .padStart(2, "0")
@@ -135,7 +135,7 @@ export default function Player({link, goBack}) {
         <div className="player__volume-row">
           <div className="player__timer">
 						<span>
-							{minute || "00"}:{second || "00"}
+							{minutes || "00"}:{seconds || "00"}
 						</span>
           </div>
           <div>

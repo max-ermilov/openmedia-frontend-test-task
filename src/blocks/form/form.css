@@ -55,7 +55,7 @@
   display: block;
   height: 96px;
   width: 96px;
-  background: #F8D231 url("../../images/submit-icon.svg") no-repeat center;
+  background: #F8D231;
   cursor: pointer;
   border: none;
   color: transparent;
@@ -66,9 +66,34 @@
 
 }
 
+.form__submit-button:before {
+  content: "";
+  background: url("../../images/submit-icon.svg") no-repeat center;
+  display: block;
+  position: absolute;
+  width:100%;
+  height:100%;
+  top: 0;
+  left: 0;
+}
+.form__submit-button:disabled:before {
+  animation-name: rotate-arrow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate-arrow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .form__submit-button:disabled:hover {
   cursor: wait;
-  filter: saturate(.3);
 }
 
 .form__submit-button:disabled {
